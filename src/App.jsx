@@ -198,7 +198,7 @@ function App() {
         <img className="avatar" src="/profile.jpg" alt="Profile" />
         <div className="hero-text">
           <h1>KK Mokoena</h1>
-          <p>Interactive CV </p>
+          <p>Interactive CV · Deployed via Vercel</p>
           <div className="hero-actions">
             <a className="btn" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects') }}>View Projects</a>
               <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a>
