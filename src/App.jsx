@@ -44,11 +44,11 @@ function Nav({ active, onNavigate }) {
         </button>
         <a
           className="brand"
-          href="/KKMokoena_CV.pdf"
+          href="/kkmokoena_cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
-          KKMokoena-cv
+          KK Mokoena 
         </a>
       </div>
       <ul className="nav-list desktop">
@@ -201,7 +201,7 @@ function App() {
           <p>Interactive CV </p>
           <div className="hero-actions">
             <a className="btn" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects') }}>View Projects</a>
-              <a className="btn outline" href="/KKMokoena_CV.pdf" target="_blank" rel="noreferrer">Preview CV</a>
+              <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a>
           </div>
         </div>
       </header>
