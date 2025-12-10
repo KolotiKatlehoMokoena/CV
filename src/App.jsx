@@ -197,8 +197,8 @@ function App() {
       <header className="hero">
         <img className="avatar" src="/profile.jpg" alt="Profile" />
         <div className="hero-text">
-          <h1>KK Mokoena</h1>
-          <p>Interactive CV · Auto-deploy check</p>
+          <h1>Katleho K Mokoena</h1>
+          <p>Interactive CV </p>
           <div className="hero-actions">
             <a className="btn" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects') }}>View Projects</a>
               <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a>
@@ -222,8 +222,10 @@ function App() {
         </Section>
 
         <Section id="portfolio" title="Portfolio">
-        <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            </p>
+         <p style={{ color: 'var(--muted)', marginTop: 0 }}>
+           A consolidated portfolio across graphic design, photography, and social media management, highlighting engagements with companies managed throughout the years.
+          </p>
+      
           <div className="tabs">
             <button className={portfolioTab === 'design' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('design')}>Graphic Design</button>
             <button className={portfolioTab === 'photo' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('photo')}>Photography</button>
@@ -268,13 +270,18 @@ function App() {
                 <p>Social Media Manager — Managed all social media platforms from Jun 2019 to Jul 2020.</p>
                 <a className="btn outline" href="https://web.facebook.com/TheIvyLounge" target="_blank" rel="noreferrer">View Page</a>
               </div>
+              <div className="card">
+                <h3>KK Visuals</h3>
+                <p>Social Media Manager — Managed all social media platforms from October 2014 to August 2023.</p>
+                <a className="btn outline" href="https://www.facebook.com/profile.php?id=100028835933338" target="_blank" rel="noreferrer">View Page</a>
+              </div>
             </div>
           )}
         </Section>
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Note: This app integrates Firebase (Firestore) for the contact form and can be extended for project data.
+            Current runtime stack: React (Vite SPA) with client-side routing and ES modules; UI styled via CSS variables; data persistence on Firebase Firestore; built and served on Vercel (CI/CD from GitHub); static assets resolved from `/public` over HTTPS.
           </p>
           <div className="cards">
             <div className="card">
@@ -312,10 +319,12 @@ function App() {
             <SkillTag label="React" level={90} />
              <SkillTag label="Wordpress" level={85} />
             <SkillTag label="JavaScript" level={85} />
-            <SkillTag label="Graphic Design" level={85} />
+             <SkillTag label="Power BI" level={75} />
+            <SkillTag label="Graphic Design" level={75} />
             <SkillTag label="Photography" level={75} />
             <SkillTag label="Videography" level={75} />
-             <SkillTag label="Video Editor" level={75} />
+             <SkillTag label="Video Editor" level={70} />
+            
           </div>
         </Section>
 
@@ -341,7 +350,7 @@ function App() {
             <TimelineItem
               title="Social & Web Administration"
               subtitle="Art Bank of South Africa"
-              period="September 2024 — Present"
+              period="September 2024 — December 2025"
               description="Managing the website performance, security, content updates, ensuring optimal site functionality, 
               troubleshoot technical issues, oversee user access, and implement necessary updates and backups for data protection."
             />
@@ -352,9 +361,9 @@ function App() {
               description="Coordinated project timelines, stakeholder communication, and deliverables, supported program logistics and reporting."
             />
             <TimelineItem
-              title="Database Administrator Intern"
+              title="Database Administrator"
               subtitle="Kwavulamehlo Arts & Ideas"
-              period="February 2022 — June 2022"
+              period="February 2022 — June 2023"
               description="Maintained and organized datasets, performed data entry and backups, and assisted with data integrity processes."
             />
             <TimelineItem
