@@ -323,7 +323,7 @@ function App() {
             <SkillTag label="Graphic Design" level={75} />
             <SkillTag label="Photography" level={75} />
             <SkillTag label="Videography" level={75} />
-             <SkillTag label="Video Editor" level={70} />
+             <SkillTag label="Video Editor" level={75} />
             
           </div>
         </Section>
