@@ -241,8 +241,10 @@ function App() {
         </Section>
 
         <Section id="portfolio" title="Portfolio">
-        <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            </p>
+         <p style={{ color: 'var(--muted)', marginTop: 0 }}>
+           A consolidated portfolio across graphic design, photography, and social media management, highlighting engagements with companies managed throughout the years.
+          </p>
+      
           <div className="tabs">
             <button className={portfolioTab === 'design' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('design')}>Graphic Design</button>
             <button className={portfolioTab === 'photo' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('photo')}>Photography</button>
@@ -289,19 +291,13 @@ function App() {
                 <p>Social Media Manager — Managed all social media platforms from Jun 2019 to Jul 2020.</p>
                 <a className="btn outline" href="https://web.facebook.com/TheIvyLounge" target="_blank" rel="noreferrer">View Page</a>
               </div>
-              <div className="card">
-                <h3>KK Visuals</h3>
-                <p>Social Media Manager — Managed personal photography page.</p>
-                <a className="btn outline" href="https://www.facebook.com/profile.php?id=100028835933338&locale=mk_MK" target="_blank" rel="noreferrer">View Page</a>
-              </div>
-              
             </div>
           )}
         </Section>
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Here are some of my recent projects:
+            Note: This app integrates Firebase (Firestore) for the contact form and can be extended for project data.
           </p>
             <div className="card">
               <h3>E-Commerce Website</h3>
@@ -353,9 +349,9 @@ function App() {
              <SkillTag label="Wordpress" level={85} />
             <SkillTag label="JavaScript" level={85} />
             <SkillTag label="Graphic Design" level={85} />
-            <SkillTag label="Photography" level={80} />
-            <SkillTag label="Videography" level={80} />
-             <SkillTag label="Video Editor" level={80} />
+            <SkillTag label="Photography" level={75} />
+            <SkillTag label="Videography" level={75} />
+             <SkillTag label="Video Editor" level={75} />
           </div>
         </Section>
 
@@ -416,9 +412,9 @@ function App() {
               description="Coordinated project timelines, stakeholder communication, and deliverables, supported program logistics and reporting."
             />
             <TimelineItem
-              title="Database Administrator Intern"
+              title="Database Administrator"
               subtitle="Kwavulamehlo Arts & Ideas"
-              period="February 2022 — June 2022"
+              period="February 2022 — June 2023"
               description="Maintained and organized datasets, performed data entry and backups, and assisted with data integrity processes."
             />
             <TimelineItem
