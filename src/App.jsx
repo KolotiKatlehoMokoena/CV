@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { db } from './firebase'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
@@ -41,15 +41,7 @@ function Nav({ active, onNavigate }) {
           <span></span>
           <span></span>
           <span></span>
-        </button>
-        <a
-          className="brand"
-          href="/kkmokoena_cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          KK Mokoena 
-        </a>
+        </button>       
       </div>
       <ul className="nav-list desktop">
         {items.map((item) => (
@@ -183,6 +175,33 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [portfolioTab, setPortfolioTab] = useState('design')
 
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll('section[id]'))
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting)
+        if (visible.length) {
+          const closest = visible.reduce((closestEntry, current) => {
+            return Math.abs(current.boundingClientRect.top) < Math.abs(closestEntry.boundingClientRect.top) ? current : closestEntry
+          }, visible[0])
+          setActive(closest.target.id)
+        }
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal')
+          }
+        })
+      },
+      { threshold: 0.35 }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
   const scrollTo = (id) => {
     setActive(id)
     const el = document.getElementById(id)
@@ -197,8 +216,8 @@ function App() {
       <header className="hero">
         <img className="avatar" src="/profile.jpg" alt="Profile" />
         <div className="hero-text">
-          <h1>KK Mokoena</h1>
-          <p>Interactive CV · Auto-deploy check</p>
+          <h1>Katleho K Mokoena</h1>
+          <p>Interactive CV </p>
           <div className="hero-actions">
             <a className="btn" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects') }}>View Projects</a>
               <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a>
@@ -211,8 +230,8 @@ function App() {
           <p>
             I’m a passionate developer and IT professional dedicated to building delightful user 
             experiences, performant frontends, and resilient backends. With a strong foundation in Information Technology, 
-            I’ve excelled as a Web Administrator, Database Administrator, Project Coordinator, 
-            and Social Media Manager roles that strengthened my abilities in software maintenance, website management, 
+            I’ve excelled as a Project Coordinator, IT Administrator, Network Engineer, Web Administrator, Database Administrator,  
+            and Social Media Manager roles that strengthened my abilities in software maintenance, website management, network infrastructure, 
             project execution, and digital engagement. 
             I enjoy solving real problems through clean code, accessible design, 
             and thoughtful collaboration, while leveraging digital platforms to boost brand visibility
@@ -251,6 +270,8 @@ function App() {
             </div>
           )}
 
+
+
           {portfolioTab === 'social' && (
             <div className="cards">
               <div className="card">
@@ -268,40 +289,59 @@ function App() {
                 <p>Social Media Manager — Managed all social media platforms from Jun 2019 to Jul 2020.</p>
                 <a className="btn outline" href="https://web.facebook.com/TheIvyLounge" target="_blank" rel="noreferrer">View Page</a>
               </div>
+              <div className="card">
+                <h3>KK Visuals</h3>
+                <p>Social Media Manager — Managed personal photography page.</p>
+                <a className="btn outline" href="https://www.facebook.com/profile.php?id=100028835933338&locale=mk_MK" target="_blank" rel="noreferrer">View Page</a>
+              </div>
+              
             </div>
           )}
         </Section>
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Note: This app integrates Firebase (Firestore) for the contact form and can be extended for project data.
+            Here are some of my recent projects:
           </p>
-          <div className="cards">
             <div className="card">
-              <h3>Portfolio Website</h3>
-              <p>Responsive React + Vite site with smooth navigation, theming, and Firebase integration.</p>
-              <button className="btn outline" onClick={() => setSelectedProject({
-                title: 'Portfolio Website',
-                details: 'Built with React, Vite, and CSS variables. Implements sticky navigation, smooth scrolling, modal dialogs, accessible components, and integrates Firebase Firestore for forms/data.'
-              })}>Details</button>
+              <h3>E-Commerce Website</h3>
+              <p>An e-commerce website is a high-availability distributed web application engineered for digital transactions. It operates as a complex, 
+                data-driven engine that synchronizes frontend UI, backend APIs, and third-party integrations</p>
+              <div className="card-actions">
+                <a className="btn" href="https://website-27f0d.web.app/" target="_blank" rel="noreferrer">Visit Site</a>
+                <button className="btn outline" onClick={() => setSelectedProject({
+                  title: 'E-Commerce Website',
+                  details: 'A digital store that lets customers browse, select, and securely buy products. Core Functions are displaying organized digital product catalogs. Selection use a virtual shopping cart to hold items. Payments are processed on secure online transactions. The website integrates with payment gateways, inventory management, and customer support systems to provide a seamless shopping experience.'
+                })}>Details</button>
+              </div>
             </div>
+
             <div className="card">
-              <h3>Dashboard SPA</h3>
-              <p>Interactive charts, filters, and real-time websocket updates.</p>
-              <button className="btn outline" onClick={() => setSelectedProject({
-                title: 'Dashboard SPA',
-                details: 'SPA using React and Recharts with websocket-powered live metrics, debounce filtering, and lazy-loaded routes.'
-              })}>Details</button>
+              <h3> Art Bank of South Africa - National Catalog</h3>
+              <p>Showcasing the artworks we have acquired by the best South African artists from across the nation, we hope you enjoy reading our 2020 Art Collection Third Edition.</p>
+              <div className="card-actions">
+                <a className="btn" href="https://artbanksa.org/2020-art-collection-of-the-art-bank-of-south-africa/" target="_blank" rel="noreferrer">Visit Site</a>
+                <button className="btn outline" onClick={() => setSelectedProject({
+                  title: 'National Catalog',
+                  details: 'Contributed to the development of a comprehensive digital and physical catalog showcasing the national art collection. Features include detailed artwork descriptions, artist information, and interactive browsing capabilities.'
+                })}>Details</button>
+              </div>
             </div>
+
             <div className="card">
-              <h3>Serverless API</h3>
-              <p>Event-driven workers handling thousands of messages per minute.</p>
-              <button className="btn outline" onClick={() => setSelectedProject({
-                title: 'Serverless API',
-                details: 'AWS Lambda + SQS pipeline with retries, DLQs, and observability via CloudWatch dashboards.'
-              })}>Details</button>
+              <h3>Interactive CV Website</h3>
+              <p> Incorporating clickable links, multimedia elements, responsive designs and serverless API.</p>
+              <div className="card-actions">
+                <a className="btn" href="https://kkmokoenainteractivecv-kk-mokoenas-projects.vercel.app/" target="_blank" rel="noreferrer">Visit Site</a>
+                <button className="btn outline" onClick={() => setSelectedProject({
+                  title: 'Interactive CV Website',
+                  details: 'Built with React, Vite, and CSS variables. Implements sticky navigation, smooth scrolling, modal dialogs, accessible components, and integrates Firebase Firestore for forms/data.'
+                })}>Details</button>
+              </div>
             </div>
-          </div>
+            
+          
+        
         </Section>
 
 
@@ -313,9 +353,9 @@ function App() {
              <SkillTag label="Wordpress" level={85} />
             <SkillTag label="JavaScript" level={85} />
             <SkillTag label="Graphic Design" level={85} />
-            <SkillTag label="Photography" level={75} />
-            <SkillTag label="Videography" level={75} />
-             <SkillTag label="Video Editor" level={75} />
+            <SkillTag label="Photography" level={80} />
+            <SkillTag label="Videography" level={80} />
+             <SkillTag label="Video Editor" level={80} />
           </div>
         </Section>
 
@@ -333,15 +373,39 @@ function App() {
                 <li>JavaScript Essentials I</li>
               </ul>
             </li>
+            <li>
+              Huawei Global Training Centre
+              <ul className="list">
+                <li>OceanStor Dorado Administrator Training</li>
+                <li>Datacenter Virtualization Solutions Training</li>
+                <li>OceanProtect Backup Appliance Administrator Training</li>
+              </ul>
+            </li>
           </ul>
         </Section>
 
         <Section id="experience" title="Experience">
           <div className="timeline">
+
+              <TimelineItem
+              title="Network Engineer"
+              subtitle="Unqeto IT Solutions"
+              period="April 2026 — present"
+              description=" Designing, implementing, and managing organizations network infrastructure."
+            />
+
+            <TimelineItem
+              title="IT Administrator"
+              subtitle="The Grind Investments"
+              period="February 2026 — March 2026"
+              description=" Acted as the primary point of contact for resolving IT-related queries, 
+              ranging from software, hardware and network connectivity issues."
+            />
+
             <TimelineItem
               title="Social & Web Administration"
               subtitle="Art Bank of South Africa"
-              period="September 2024 — Present"
+              period="September 2024 — December 2025"
               description="Managing the website performance, security, content updates, ensuring optimal site functionality, 
               troubleshoot technical issues, oversee user access, and implement necessary updates and backups for data protection."
             />
@@ -384,7 +448,7 @@ function App() {
           <a href="https://www.linkedin.com/in/katlehokmokoena007gp/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="mailto:katlehokmokoena@outlook.com">Email</a>
         </div>
-        <span>© 2025 KK Mokoena</span>
+        <span>© Designed by KK Mokoena</span>
       </footer>
 
       <Modal
