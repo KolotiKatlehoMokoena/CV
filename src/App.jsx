@@ -114,8 +114,8 @@ function ContactForm() {
     e.preventDefault()
     try {
       setLoading(true)
-      if (!import.meta.env.VITE_FIREBASE_PROJECT_ID) {
-        throw new Error('Missing Firebase env. Restart dev server after adding .env')
+      if (!import.meta.env.VITE_FIREBASE_PROJECT_ID || !db) {
+        throw new Error('Firebase is not configured. Please set environment variables to enable contact form.')
       }
       console.log('[Contact] Submitting to Firestore…', {
         projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,

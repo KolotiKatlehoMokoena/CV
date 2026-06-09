@@ -13,7 +13,22 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 
-const app = initializeApp(firebaseConfig)
-export const db = getFirestore(app)
-// Analytics is optional and only runs in supported environments
-isSupported().then((ok) => { if (ok) getAnalytics(app) }).catch(() => {})
+let db = null
+let app = null
+
+const isFirebaseConfigured = Boolean(
+  firebaseConfig.apiKey &&
+  firebaseConfig.authDomain &&
+  firebaseConfig.projectId &&
+  firebaseConfig.appId
+)
+
+if (isFirebaseConfigured) {
+  app = initializeApp(firebaseConfig)
+  db = getFirestore(app)
+  isSupported()
+    .then((ok) => { if (ok) getAnalytics(app) })
+    .catch(() => {})
+}
+
+export { db, isFirebaseConfigured }
