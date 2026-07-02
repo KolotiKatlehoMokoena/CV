@@ -229,12 +229,11 @@ function App() {
         <Section id="about" title="About">
           <p>
             I’m a passionate developer and IT professional dedicated to building delightful user 
-            experiences, performant frontends, and resilient backends. With a strong foundation in Information Technology, 
+            experiences, performant frontends and resilient backends. With a strong foundation in Information Technology, 
             I’ve excelled as a Project Coordinator, IT Administrator, Network Engineer, Web Administrator, Database Administrator,  
             and Social Media Manager roles that strengthened my abilities in software maintenance, website management, network infrastructure, 
             project execution, and digital engagement. 
-            I enjoy solving real problems through clean code, accessible design, 
-            and thoughtful collaboration, while leveraging digital platforms to boost brand visibility
+            I enjoy solving real problems through clean code, accessible design and thoughtful collaboration, while leveraging digital platforms to boost brand visibility
            and audience connection. Driven by continuous learning, I stay ahead of emerging technologies 
            and consistently bring a proactive, solutions-focused mindset to every project.
           </p>
@@ -297,8 +296,21 @@ function App() {
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Note: This app integrates Firebase (Firestore) for the contact form and can be extended for project data.
+            Projects that showcase my skills in web development, design, and IT solutions. Each project highlights my ability to create functional, user-friendly and visually appealing digital experiences.
           </p>
+
+             <div className="card">
+              <h3>Business Journalist Portfolio Website</h3>
+              <p>An interactive portfolio website for a business journalist, built with React, Vite, and CSS variables. It includes sticky navigation, smooth scrolling, modal dialogs, accessible components, and Firebase Firestore integration for forms and data.</p>
+              <div className="card-actions">
+                <a className="btn" href="https://businessjournalist.vercel.app/" target="_blank" rel="noreferrer">Visit Site</a>
+                <button className="btn outline" onClick={() => setSelectedProject({
+                  title: 'Business Journalist Portfolio Website',
+                  details: 'An interactive business journalist portfolio website built with React, Vite, and CSS variables. Implements sticky navigation, smooth scrolling, modal dialogs, accessible components, and integrates Firebase Firestore for forms/data.'
+                })}>Details</button>
+              </div>
+            </div>
+
             <div className="card">
               <h3>E-Commerce Website</h3>
               <p>An e-commerce website is a high-availability distributed web application engineered for digital transactions. It operates as a complex, 
@@ -313,7 +325,7 @@ function App() {
             </div>
 
             <div className="card">
-              <h3> Art Bank of South Africa - National Catalog</h3>
+              <h3> Art Bank of South Africa - National Catalogue</h3>
               <p>Showcasing the artworks we have acquired by the best South African artists from across the nation, we hope you enjoy reading our 2020 Art Collection Third Edition.</p>
               <div className="card-actions">
                 <a className="btn" href="https://artbanksa.org/2020-art-collection-of-the-art-bank-of-south-africa/" target="_blank" rel="noreferrer">Visit Site</a>
@@ -323,6 +335,8 @@ function App() {
                 })}>Details</button>
               </div>
             </div>
+
+            
 
             <div className="card">
               <h3>Interactive CV Website</h3>
@@ -335,6 +349,8 @@ function App() {
                 })}>Details</button>
               </div>
             </div>
+
+           
             
           
         
@@ -359,14 +375,9 @@ function App() {
           <ul className="list">
             <li> National Senior Certificate</li>
             <li>National Diploma: Information Technology</li>
-            <li>
-              Cisco Networking Academy
+            <li>Molex Connected Enterprise Solutions
               <ul className="list">
-                <li>Introduction to Modern AI</li>
-                <li>Introduction to Cybersecurity</li>
-                <li>Cyber Threat Management</li>
-                <li>Endpoint Security</li>
-                <li>JavaScript Essentials I</li>
+                <li>BP130 – Advanced Structured Cabling Design and Installation</li>
               </ul>
             </li>
             <li>
@@ -377,6 +388,17 @@ function App() {
                 <li>OceanProtect Backup Appliance Administrator Training</li>
               </ul>
             </li>
+            <li>
+              Cisco Networking Academy
+              <ul className="list">
+                <li>Introduction to Modern AI</li>
+                <li>Introduction to Cybersecurity</li>
+                <li>Cyber Threat Management</li>
+                <li>Endpoint Security</li>
+                <li>JavaScript Essentials I</li>
+              </ul>
+            </li>
+            
           </ul>
         </Section>
 
