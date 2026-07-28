@@ -232,7 +232,7 @@ function App() {
             experiences, performant frontends and resilient backends. With a strong foundation in Information Technology, 
             I’ve excelled as a Project Coordinator, IT Administrator, Network Engineer, Web Administrator, Database Administrator,  
             and Social Media Manager roles that strengthened my abilities in software maintenance, website management, network infrastructure, 
-            project execution, and digital engagement. 
+            project execution and digital engagement. 
             I enjoy solving real problems through clean code, accessible design and thoughtful collaboration, while leveraging digital platforms to boost brand visibility
            and audience connection. Driven by continuous learning, I stay ahead of emerging technologies 
            and consistently bring a proactive, solutions-focused mindset to every project.
@@ -247,7 +247,7 @@ function App() {
           <div className="tabs">
             <button className={portfolioTab === 'design' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('design')}>Graphic Design</button>
             <button className={portfolioTab === 'photo' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('photo')}>Photography</button>
-            <button className={portfolioTab === 'social' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('social')}>Social Media</button>
+            <button className={portfolioTab === 'social' ? 'tab active' : 'tab'} onClick={() => setPortfolioTab('social')}>Social Media Management</button>
           </div>
 
           {portfolioTab === 'design' && (
@@ -277,7 +277,7 @@ function App() {
             <div className="cards">
               <div className="card">
                 <h3>Art Bank of South Africa</h3>
-                <p>Social Media Manager — Managed all social media platforms Aug 2023 to Dec 2025.</p>
+                <p>Social Media Manager — Managed all social media platforms from Aug 2023 to Dec 2025.</p>
                 <a className="btn outline" href="https://web.facebook.com/artbankSA" target="_blank" rel="noreferrer">View Page</a>
               </div>
               <div className="card">
@@ -296,7 +296,7 @@ function App() {
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Projects that showcase my skills in web development, design, and IT solutions. Each project highlights my ability to create functional, user-friendly and visually appealing digital experiences.
+            Projects that showcase my skills in web development, design and IT solutions. Each project highlights my ability to create functional, user-friendly and visually appealing digital experiences.
           </p>
 
              <div className="card">
@@ -324,6 +324,18 @@ function App() {
               </div>
             </div>
 
+                 <div className="card">
+              <h3> Art Bank of South Africa - Lead Project Coordinator</h3>
+              <p>Was assigned as the project lead for the execution and design of the James Brick Monument, overseeing the monument's conceptual design, project planning, stakeholder coordination, resource management and on-site execution. I ensured the successful delivery of the project while meeting design objectives, quality standards, budget requirements and project timeline.</p>
+              <div className="card-actions">
+                <a className="btn" href="https://www.facebook.com/NationalMuseumBloemfontein/posts/pfbid0pjrEXPymXuUQUxDi6bEujGKGrm2WkNGEM5bk19JLjN1Ce5wmtcRiu6E7WP5gMr95l" target="_blank" rel="noreferrer">Visit Site</a>
+                <button className="btn outline" onClick={() => setSelectedProject({
+                  title: 'James Brick Monument Project',
+                  details: 'Served as the Project Lead for the design and execution of the James Brick Monument, overseeing the project from concept development through to completion. Responsibilities included designing the monument, planning and coordinating project activities, managing stakeholders, contractors, and suppliers, procuring materials, supervising on-site construction, ensuring compliance with quality and safety standards, monitoring project timelines and budgets, resolving technical challenges, and ensuring the successful delivery of the monument in accordance with the clients vision and project specifications.'
+                })}>Details</button>
+              </div>
+            </div>
+
             <div className="card">
               <h3> Art Bank of South Africa - National Catalogue</h3>
               <p>Showcasing the artworks we have acquired by the best South African artists from across the nation, we hope you enjoy reading our 2020 Art Collection Third Edition.</p>
@@ -335,8 +347,6 @@ function App() {
                 })}>Details</button>
               </div>
             </div>
-
-            
 
             <div className="card">
               <h3>Interactive CV Website</h3>
@@ -350,13 +360,7 @@ function App() {
               </div>
             </div>
 
-           
-            
-          
-        
         </Section>
-
-
         <Section id="skills" title="Skills">
           <div className="skills">
            <SkillTag label="C#" level={90} />
@@ -373,7 +377,7 @@ function App() {
 
         <Section id="education" title="Education">
           <ul className="list">
-            <li> National Senior Certificate</li>
+            <li>National Senior Certificate</li>
             <li>National Diploma: Information Technology</li>
             <li>Molex Connected Enterprise Solutions
               <ul className="list">
@@ -480,5 +484,4 @@ function App() {
     </div>
   )
 }
-
 export default App
