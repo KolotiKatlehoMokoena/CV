@@ -18,7 +18,7 @@ function Nav({ active, onNavigate }) {
     { id: 'portfolio', label: 'Portfolio' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
-   // { id: 'education', label: 'Education' },
+    { id: 'education', label: 'Education' },
    // { id: 'experience', label: 'Experience' },
     { id: 'contact', label: 'Contact' },
   ]
@@ -197,7 +197,7 @@ function App() {
           }
         })
       },
-      { threshold: 0.15, rootMargin: '-10% 0px -10% 0px' }
+      { threshold: 0.35 }
     )
 
     sections.forEach((section) => observer.observe(section))
@@ -222,7 +222,7 @@ function App() {
           <p>Interactive Portfolio </p>
           <div className="hero-actions">
             <a className="btn" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects') }}>View Projects</a>
-            {/* <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a>  */}
+           <a className="btn outline" href="/kkmokoena_cv.pdf" target="_blank" rel="noreferrer">Preview CV</a> 
           </div>
         </div>
       </header>
@@ -298,7 +298,7 @@ function App() {
 
         <Section id="projects" title="Projects">
           <p style={{ color: 'var(--muted)', marginTop: 0 }}>
-            Projects that showcase my skills in web development, design and project coordination. Each project highlights my ability to create functional, user-friendly and visually appealing digital experiences.
+            Projects that showcase my skills in web development, design and IT solutions. Each project highlights my ability to create functional, user-friendly and visually appealing digital experiences.
           </p>
 
              <div className="card">
@@ -328,7 +328,7 @@ function App() {
 
                  <div className="card">
               <h3> Art Bank of South Africa - Lead Project Coordinator</h3>
-              <p>Project lead for the execution and design of the James Brick Monument, overseeing the monuments conceptual design, project planning, stakeholder coordination, resource management and on-site execution. I ensured the successful delivery of the project while meeting design objectives, quality standards, budget requirements and project timeline.</p>
+              <p>Was assigned as the project lead for the execution and design of the James Brick Monument, overseeing the monument's conceptual design, project planning, stakeholder coordination, resource management and on-site execution. I ensured the successful delivery of the project while meeting design objectives, quality standards, budget requirements and project timeline.</p>
               <div className="card-actions">
                 <a className="btn" href="https://www.facebook.com/NationalMuseumBloemfontein/posts/pfbid0pjrEXPymXuUQUxDi6bEujGKGrm2WkNGEM5bk19JLjN1Ce5wmtcRiu6E7WP5gMr95l" target="_blank" rel="noreferrer">Visit Site</a>
                 <button className="btn outline" onClick={() => setSelectedProject({
@@ -408,7 +408,7 @@ function App() {
           </ul>
         </Section>
 
-        {/* <Section id="experience" title="Experience">
+        <Section id="experience" title="Experience">
           <div className="timeline">
 
               <TimelineItem
@@ -460,7 +460,7 @@ function App() {
               adjustments to improve reach and engagement."
             />
           </div>
-        </Section> */}
+        </Section>
 
         <Section id="contact" title="Contact">
           <ContactForm />
